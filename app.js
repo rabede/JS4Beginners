@@ -4,17 +4,33 @@ function fText() {
 }
 
 function fCompany() {
+  console.clear();
   let company = prompt("Firma?");
   printCompany(company);
   compare(company);
-  mySimpleFunction(company);
-  console.log(mySumFunction(company));
 }
 
-function fArray(){
+function fArray() {
+  console.clear();
   let petArray = ["Dog", "Cat", "Bird", "Fish", "Reptile"];
   let numberArray = [1, 32, 63, 4, 75, 76, 347, 84];
+  addPet(petArray);
   sortArray(petArray, numberArray);
+}
+
+function fLoop() {
+  console.clear();
+  let iLoops = prompt("Anzahl Loops?");
+  loop(iLoops);
+}
+
+function fArrow() {
+  console.clear();
+  testArrowFunctions();
+}
+
+function fObject() {
+  showObject();
 }
 
 // -------------------------------------------------------------------------------------- //
@@ -50,8 +66,7 @@ function printCompany(company) {
 }
 
 // -------------------------------------------------------------------------------------- //
-function loop() {
-  let iLoops = prompt("Anzahl Loops?");
+function loop(iLoops) {
   let count = 0;
 
   console.log(`count = ${count}, iLoops = ${iLoops}`);
@@ -62,7 +77,7 @@ function loop() {
   console.log("");
 
   console.log(`count = ${count}, iLoops = ${iLoops}`);
-    console.log(`Do count -= 1 while count >= 0`);
+  console.log(`Do count -= 1 while count >= 0`);
   do {
     compare(count);
     count -= 1;
@@ -70,7 +85,7 @@ function loop() {
   console.log("");
 
   console.log(`count = ${count}, iLoops = ${iLoops}`);
-  console.log(`While count <= iLoops count++`)
+  console.log(`While count <= iLoops count++`);
   while (count <= iLoops) {
     compare(count);
     count++;
@@ -96,7 +111,7 @@ function testArrowFunctions() {
   };
   let param1 = parseInt(prompt("Parameter 1"));
   mySimpleFunction(param1);
-  
+
   let param2 = parseInt(prompt("Parameter 2"));
   console.log(mySumFunction(param1, param2));
 }
@@ -116,7 +131,6 @@ const flexiSumCalculator5 = flexiSumCalculator(5);
 // console.log(flexiSumCalculator5(1)); // 6
 // console.log(flexiSumCalculator5(2)); // 7
 // console.log(flexiSumCalculator5(3)); // 8
-
 
 // -------------------------------------------------------------------------------------- //
 function sortArray(petArray, numberArray) {
@@ -151,5 +165,53 @@ function sortArray(petArray, numberArray) {
       console.log(element);
     }
     console.log("------------------");
+  }
+}
+
+function addPet(petArray) {
+  let sPet = prompt("Tier am Ende einfügen");
+  petArray.push(sPet);
+  console.table(petArray);
+
+  sPet = prompt("Noch ein Tier eingeben");
+  let iInsert = prompt("An welcher Stelle einfügen?");
+  petArray.splice(iInsert, 0, sPet);
+  console.table(petArray);
+
+  // erstes Tier entfernen
+  petArray.splice(0, 1);
+  console.table(petArray);
+
+  //erstes Tier ersetzen
+  petArray.splice(0, 1, "Small Dog", "Big Dog");
+  console.table(petArray);
+}
+
+function showObject() {
+  let carArray = [
+    {
+      make: "Mercedes",
+      model: "A Class AMG",
+      colour: "Black",
+      topSpeed: 168,
+    },
+    {
+      make: "BMW",
+      model: "M Series",
+      colour: "White",
+      topSpeed: 150,
+    },
+    {
+      make: "Audi",
+      model: "S4",
+      colour: "Blue",
+      topSpeed: 173,
+    },
+  ];
+  console.log(carArray[1].model + " ist " + carArray[1].colour);
+
+  console.table(carArray);
+  for (let car of carArray) {
+    console.log(`Der ${car.make} ist ${car.colour}.`);
   }
 }
