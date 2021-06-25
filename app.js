@@ -188,7 +188,8 @@ function addPet(petArray) {
 }
 
 function showObject() {
-  let carArray = [
+  console.log("Array als Objekt");
+  let object = [
     {
       make: "Mercedes",
       model: "A Class AMG",
@@ -208,10 +209,34 @@ function showObject() {
       topSpeed: 173,
     },
   ];
-  console.log(carArray[1].model + " ist " + carArray[1].colour);
-
-  console.table(carArray);
-  for (let car of carArray) {
+  console.table(object);
+  console.log(typeof object);
+  for (let car of object) {
     console.log(`Der ${car.make} ist ${car.colour}.`);
   }
+  console.log(object[1].model + " ist " + object[1].colour);
+
+  console.log("\n Object aus JSON");
+  let sJson =
+    '{ "make": "Mercedes", "model": "A Class AMG", "colour": "Black", "trimOptions": ["Leather", "Cloth", "Alcantara"]}';
+  object = JSON.parse(sJson);
+
+  console.table(object);
+  console.log(object);
+  console.log(typeof object);
+  console.log(object.make);
+  console.log(object.trimOptions[2]);
+
+  sJson =
+    '{"myCars": [{"make": "Mercedes","model": "A Class AMG","colour": "Black"},{"make": "BMW", "model": "M Series","colour": "White"},{"make": "Audi","model": "S4","colour": "Blue"}]}';
+  object = JSON.parse(sJson);
+  console.table(object.myCars);
+  console.log(object);
+  console.log(typeof object);
+  console.log(object.myCars[1].make);
+
+  console.log("\n JSON-String aus Objekt")
+  console.log(typeof object); 
+  console.log(JSON.stringify(object));
+  console.log(typeof JSON.stringify(object));
 }
