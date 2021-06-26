@@ -1,6 +1,34 @@
+//Event Handler
+function onMouseOverH1() {
+  let headerText = document.querySelector("#header-text");
+  headerText.style.color = "red";
+  headerText.innerHTML = "Geh weg!";
+}
+
+function onMouseOutH1() {
+  let headerText = document.querySelector("#header-text");
+  headerText.style.color = "black";
+  headerText.innerHTML = "Oller Text!";
+}
+
+function onInputChange() {
+  document.querySelector("#name-output").innerHTML =
+    document.querySelector("#name-input").value;
+}
+
 // Event Handler für Button
 function fText() {
-  document.getElementById("test").innerHTML = "Some new text appeared!";
+  //document.getElementById("test").innerHTML = "Neuer Text";
+  const div = document.getElementById("text-div");
+  const newText = document.createElement("p");
+  newText.textContent = "Ganz neuer Text";
+  div.appendChild(newText);
+  div.style.cssText = "fontWeight: bold; background-color: Chartreuse";
+}
+
+function fRemoveText() {
+  const text = document.querySelector("#test");
+  text.remove();
 }
 
 function fCompany() {
@@ -30,7 +58,77 @@ function fArrow() {
 }
 
 function fObject() {
+  console.clear();
   showObject();
+}
+
+function fTimeout() {
+  console.clear();
+  const doSomehting = () => {
+    console.log("Vor Timeout");
+  };
+  const callExternalServer = () => {
+    setTimeout(() => {
+      console.log("Call to external server complete");
+    }, 3000);
+  };
+  const doSomethingElse = () => {
+    console.log("nach Timeout");
+  };
+  doSomehting();
+  callExternalServer();
+  doSomethingElse();
+}
+
+function fCallback() {
+  console.clear();
+  const displayResult = (result) => {
+    console.log(result);
+  };
+  const alertResult = (result) => {
+    alert(result);
+  };
+  const calculatorWithCallback = (num1, num2, callback) => {
+    let result = num1 + num2;
+    callback(result); //Callback funktion aufrufen
+  };
+  calculatorWithCallback(1, 9, displayResult);
+  calculatorWithCallback(2, 99, alertResult);
+}
+
+function fPromise() {
+  console.clear();
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("The server finally sent a response");
+      reject("An error occured :(");
+    }, 3000);
+  });
+  console.log("ich ruf jetzt");
+  myPromise
+    .then((data) => {
+      console.log(data); //resolve
+    })
+    .catch((error) => {
+      console.log(error); //reject
+    });
+  console.log("ich habe gerufen");
+}
+
+function fAsync() {
+  console.clear();
+  const myAsyncFunction = async () => {
+    const warten = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Wartezeit vorbei");
+        reject("Fehler");
+      }, 3000);
+    });
+    console.log("ich rufe jetzt");
+    console.log(await warten);
+    console.log("ich habe gerufen");
+  };
+  myAsyncFunction();
 }
 
 // -------------------------------------------------------------------------------------- //
@@ -235,8 +333,8 @@ function showObject() {
   console.log(typeof object);
   console.log(object.myCars[1].make);
 
-  console.log("\n JSON-String aus Objekt")
-  console.log(typeof object); 
+  console.log("\n JSON-String aus Objekt");
+  console.log(typeof object);
   console.log(JSON.stringify(object));
   console.log(typeof JSON.stringify(object));
 }

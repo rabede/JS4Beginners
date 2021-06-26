@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="app.js"></script>
-  </head>
 
-  <body>
-    <div id="text-div">
-      <p id="test">Some old Text</p>
-    </div>
-    <div id="button-div">
-      <button type="button" onclick="fText()">Text ändern</button>
-      <button type = "button" onclick="fLoop()">Loop</button>
-      <button type = "button" onclick="fCompany()">Firma</button>
-      <button type = "button" onclick="fArray()">Array</button>
-      <button type = "button" onclick="fArrow()">Arrow Functions</button>
-      <button type = "button" onclick="fObject()">Objekt</button>
-    </div>
-    <p><a target="_new" href="https://services.odata.org/V2/Northwind/Northwind.svc/?$format=json">Northwind JSON</a></p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="app.js"></script>
+</head>
+
+<body>
+  <h1 id="header-text" onmouseover="onMouseOverH1()" onmouseout="onMouseOutH1()">JS4ABAP</h1>
+  <div id="text-div">
+    <p id="test">Alter Text</p>
+  </div>
+  <div id="button-div">
+    <button type="button" onclick="fText()">Text ändern</button>
+    <button type="button" onclick="fRemoveText()">Text entfernen</button>
+    <button type="button" onclick="fLoop()">Loop</button>
+    <button type="button" onclick="fCompany()">Firma</button>
+    <button type="button" onclick="fArray()">Array</button>
+    <button type="button" onclick="fArrow()">Arrow Functions</button>
+    <button type="button" onclick="fObject()">Objekt</button>
+    <button type="button" onclick="fTimeout()">TimeOut</button>
+    <button type="button" onclick="fCallback()">Callback</button>
+    <button type="button" onclick="fPromise()">Promise</button>
+    <button type="button" onclick="fAsync()">Async</button>
+  </div>
+  <input id="name-input" type="text" onchange="onInputChange()">
+  <p id="name-output"></p>
+  <p><a target="_new" href="https://services.odata.org/V2/Northwind/Northwind.svc/?$format=json">Northwind JSON</a></p>
+</body>
+
 </html>
